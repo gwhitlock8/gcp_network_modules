@@ -13,8 +13,8 @@ variable "subnets" {
     subnet_name                      = string
     subnet_ip                        = string
     subnet_region                    = string
-    description                      = optional(string)
-    purpose                          = optional(string)
+    subnet_description               = optional(string)
+    subnet_purpose                   = optional(string)
   }))
   description = "The list of subnets being created"
 }

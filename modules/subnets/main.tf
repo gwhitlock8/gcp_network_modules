@@ -17,6 +17,6 @@ resource "google_compute_subnetwork" "subnetwork" {
   region                     = each.value.subnet_region
   network     = var.network_name
   project     = var.project_id
-  description = lookup(each.value, "description", null)
-  purpose          = lookup(each.value, "purpose", null)
+  description = lookup(each.value, "subnet_description", null)
+  purpose          = lookup(each.value, "subnet_purpose", null)
 }

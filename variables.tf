@@ -23,18 +23,18 @@ variable "subnets" {
     subnet_name                      = string
     subnet_ip                        = string
     subnet_region                    = string
-    description                      = optional(string)
-    purpose                          = optional(string)
+    subnet_description               = optional(string)
+    subnet_purpose                          = optional(string)
   }))
   description = "The list of subnets being created"
 }
 
 variable "firewall_rules" {
   type = list(object({
-    name                    = string
-    description             = optional(string, null)
+    fw_name                    = string
+    fw_description             = optional(string, null)
     direction               = optional(string, "INGRESS")
-    priority                = optional(number, null)
+    fw_priority                = optional(number, null)
     ranges                  = optional(list(string), [])
     source_tags             = optional(list(string))
     target_tags             = optional(list(string))

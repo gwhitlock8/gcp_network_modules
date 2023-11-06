@@ -1,7 +1,7 @@
 resource "google_compute_firewall" "firewall_rules" {
-  for_each                = length(var.firewall_rules) > 0 ? { for r in var.firewall_rules : r.name => r } : {}
-  name                    = each.value.name
-  description             = each.value.description
+  for_each                = length(var.firewall_rules) > 0 ? { for r in var.firewall_rules : r.fw_name => r } : {}
+  name                    = each.value.fw_name
+  description             = each.value.fw_description
   direction               = each.value.direction
   network                 = var.network_name
   project                 = var.project_id
@@ -9,7 +9,7 @@ resource "google_compute_firewall" "firewall_rules" {
   destination_ranges      = each.value.direction == "EGRESS" ? each.value.ranges : null
   source_tags             = each.value.source_tags
   target_tags             = each.value.target_tags
-  priority                = each.value.priority
+  priority                = each.value.fw_priority
 
   dynamic "allow" {
     for_each = lookup(each.value, "allow", [])

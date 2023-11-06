@@ -10,10 +10,10 @@ variable "network_name" {
 
 variable "firewall_rules" {
   type = list(object({
-    name                    = string
-    description             = optional(string)
+    fw_name                 = string
+    fw_description          = optional(string)
     direction               = optional(string)
-    priority                = optional(number)
+    fw_priority             = optional(number)
     ranges                  = optional(list(string))
     source_tags             = optional(list(string))
     target_tags             = optional(list(string))
