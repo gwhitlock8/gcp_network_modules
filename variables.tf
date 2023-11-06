@@ -31,10 +31,10 @@ variable "subnets" {
 
 variable "firewall_rules" {
   type = list(object({
-    name                    = string
+    fw_name                    = string
     description             = optional(string, null)
-    direction               = optional(string, "INGRESS")
-    priority                = optional(number, null)
+    fw_direction               = optional(string, "INGRESS")
+    fw_priority                = optional(number, null)
     ranges                  = optional(list(string), [])
     source_tags             = optional(list(string))
     target_tags             = optional(list(string))

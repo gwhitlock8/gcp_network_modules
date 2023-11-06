@@ -34,10 +34,10 @@ module "subnets" {
 locals {
   rules = [
     for f in var.firewall_rules : {
-      name                    = lookup(f,"fw_name")
+      fw_name                    = lookup(f,"fw_name")
       direction               = lookup(f,"direction", "INGRESS")
-      priority                = lookup(f, "fw_priority", null)
-      description             = lookup(f, "fw_description", null)
+      fw_priority                = lookup(f, "fw_priority", null)
+      fw_description             = lookup(f, "fw_description", null)
       ranges                  = lookup(f, "ranges", null)
       source_tags             = lookup(f, "source_tags", null)
       target_tags             = lookup(f, "target_tags", null)
